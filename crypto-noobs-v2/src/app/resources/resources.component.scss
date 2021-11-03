@@ -1,0 +1,35 @@
+.source-images {
+    margin: 0 auto;
+}
+
+.container {
+    min-height: 200px;
+}
+
+#wrapper {
+    max-width: 1050px;
+    margin: 0px auto 60px auto;
+}
+
+#outer {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 50px;
+}
+
+.itemwrapper {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+
+/* Center Header */
+.resources-header {
+    text-align: center;
+    margin-bottom: 50px;
+}

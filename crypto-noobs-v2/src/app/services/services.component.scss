@@ -1,0 +1,105 @@
+/* Center Header */
+.services-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* Center Table */
+#wrapper {
+    max-width: 1050px;
+    margin: 0px auto 60px auto;
+}
+
+#outer {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.itemwrapper {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+
+/* Centered text */
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* Top right text */
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Top left text */
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.top-left, .top-right {
+    font-size: 20px;
+    font-style: italic;
+    color: #CFFF00;
+}
+
+.color-overlay {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .5;
+    position: absolute;
+}
+
+.ico-section, .guide-section, .announcements-section, .active-coins-section {
+    background: url("../../assets/images/guides.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 525px;
+    height: 348.86px;
+}
+
+.active-coins-section {
+    background: url("../../assets/images/activeCoins.jpg");
+}
+
+.ico-section {
+    background: url("../../assets/images/icoListings.jpg");
+}
+
+.announcements-section {
+    background: url("../../assets/images/announcements.jpg");
+}
+
+.description {
+    font-size: 14px;
+    color: white;
+}
+
+/* TODO: 
+    Edit font size when on smaller screen
+
+
+
+  */
