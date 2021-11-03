@@ -53,7 +53,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatDividerModule,
     MatRadioModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 
   providers: [],
