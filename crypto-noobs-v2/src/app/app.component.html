@@ -1,4 +1,3 @@
-
 <body class="body-background">
   <!-- <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button><mat-icon>menu</mat-icon></button>
@@ -67,18 +66,21 @@
 
 
   <div id="mySidebar" class="sidebar" (mouseover)="toggleSidebar()" (mouseout)="toggleSidebar()">
-    <a href="#home"><span class="iwt"><i class="material-icons">home</i><span>HOME</span></span></a><br>
+    <a (click)="navigate('home')" href="#home"><span class="iwt"><i class="material-icons">home</i><span>HOME</span></span></a><br>
     <a href="#about-us"><span class="iwt"><i class="material-icons">summarize</i><span>MISSION</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">assignment</i><span>GUIDES</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">add_task</i><span>ICO/IDO LISTINGS</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">announcement</i><span>ANNOUNCEMENTS</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">filter_list</i><span>ACTIVE COINS</span></span></a><br>
+    <a (click)="navigate('glossary')"><span class="iwt"><i class="material-icons">assignment</i><span>GLOSSARY</span></span></a><br>
+    <a href="#services"><span class="iwt"><i class="material-icons">add_task</i><span>ICO/IDO
+          LISTINGS</span></span></a><br>
+    <a href="#services"><span class="iwt"><i
+          class="material-icons">announcement</i><span>ANNOUNCEMENTS</span></span></a><br>
+    <a href="#services"><span class="iwt"><i class="material-icons">filter_list</i><span>ACTIVE
+          COINS</span></span></a><br>
     <a href="#contact-us"><span class="iwt"><i class="material-icons">mail</i><span>CONTACT US</span></span></a><br>
     <a href="#faq"><span class="iwt"><i class="material-icons">question_answer</i><span>FAQS</span></span></a>
   </div>
 
   <div id="main">
-    <div class="w3-padding-large" id="main">
+    <div *ngIf="showMainScreen" class="w3-padding-large homepage">
       <app-header id="home"></app-header>
       <app-about-us id="about-us"></app-about-us>
       <app-services id="services"></app-services>
@@ -87,9 +89,24 @@
       <app-contact-us id="contact-us"></app-contact-us>
       <app-footer id="footer"></app-footer>
     </div>
+
+    <div *ngIf="!showMainScreen" class="w3-padding-large terminology">
+      <div class="w3-padding-large terminology-header">
+        <app-search-abc (sendSearchTermEvent)="search($event)"></app-search-abc>
+      </div>
+      <div class="terminology-content">
+        <app-single-terminology
+          *ngFor="let term of terms | filter : searchText" 
+          [term]="term.Term"
+          [definition]="term.Definition"
+          attr.id="{{firstInstanceOfAllLettersArray.includes(term.Term) ? term.Term[0].toLowerCase() + '-first' : ''}}"
+          [class]="firstInstanceOfAllLettersArray.includes(term.Term) ? 'first ' + term.Term[0].toLowerCase() : term.Term[0].toLowerCase()"
+          >
+        </app-single-terminology>
+      </div>
+    </div>
   </div>
 
 
 
 </body>
-

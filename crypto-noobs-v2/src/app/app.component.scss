@@ -24,6 +24,14 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: black;
 }
 
+/* Header styling */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 /* Nav styling */
 
 .example-container {
@@ -73,8 +81,8 @@ body, h1, h2, h3, h4, h5, h6 {
     border: none;
 } */
 
-
 /* Main Content */
+
 .section {
     position: relative;
     vertical-align: middle;
@@ -94,6 +102,10 @@ body, h1, h2, h3, h4, h5, h6 {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+}
+
+.terminology {
+    display: block;
 }
 
 
@@ -131,6 +143,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .sidebar a:hover {
     color: #818181;
+    cursor: pointer;
 }
 
 main .sidebar {
@@ -161,5 +174,8 @@ main .sidebar {
     }
     .sidebar a {
         font-size: 18px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

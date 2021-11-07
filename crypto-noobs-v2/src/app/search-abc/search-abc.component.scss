@@ -1,0 +1,48 @@
+.heading {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    background-color: black;
+}
+
+.heading div {
+    display: flex;
+    float: left;
+    font-size: 22px;
+    margin: 10px;
+}
+
+.heading div a {
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+#header {
+    background-color: black;
+}
+
+#search {
+    width: 100%;
+}
+
+i {
+    color: #cfff00;
+}
+
+mat-form-field {
+    width: 100%;
+    background-color: black;
+}
+
+.highlight {
+    color: #cfff00;
+}

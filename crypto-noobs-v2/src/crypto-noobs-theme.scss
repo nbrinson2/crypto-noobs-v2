@@ -1,0 +1,38 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Palettes
+$crypto-noobs-green: (
+    50: #CFFF00,
+    100: #CFFF00,
+    200: #CFFF00,
+    300: #CFFF00,
+    400: #CFFF00,
+    500: #CFFF00,
+    600: #CFFF00,
+    700: #CFFF00,
+    800: #CFFF00,
+    900: #CFFF00,
+    contrast: (
+        50: #afd800,
+        100: #afd800,
+        200: #afd800,
+        300: #afd800,
+        400: #afd800,
+        500: #afd800,
+        600: #afd800,
+        700: #afd800,
+        800: #afd800,
+        900: #afd800,
+    )
+);
+
+// Theme
+$crypto-noobs-primary: mat-palette($crypto-noobs-green);
+$crypto-noobs-accent: mat-palette($mat-blue);
+$crypto-noobs-warn: mat-palette($mat-red);
+
+$crypto-noobs-theme: mat-dark-theme($crypto-noobs-primary, $crypto-noobs-accent, $crypto-noobs-warn);
+
+@include angular-material-theme($crypto-noobs-theme);

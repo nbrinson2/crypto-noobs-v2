@@ -1,0 +1,110 @@
+{
+    "coins": [
+        {
+            "item": {
+                "id": "gameswap-org",
+                "coin_id": 13026,
+                "name": "Gameswap",
+                "symbol": "GSWAP",
+                "market_cap_rank": 824,
+                "thumb": "https://assets.coingecko.com/coins/images/13026/thumb/gameswap.jpg?1604456704",
+                "small": "https://assets.coingecko.com/coins/images/13026/small/gameswap.jpg?1604456704",
+                "large": "https://assets.coingecko.com/coins/images/13026/large/gameswap.jpg?1604456704",
+                "slug": "gameswap",
+                "price_btc": 5.9729273722756575e-05,
+                "score": 0
+            }
+        },
+        {
+            "item": {
+                "id": "ovr",
+                "coin_id": 13429,
+                "name": "Ovr",
+                "symbol": "OVR",
+                "market_cap_rank": 593,
+                "thumb": "https://assets.coingecko.com/coins/images/13429/thumb/ovr_logo.png?1608518911",
+                "small": "https://assets.coingecko.com/coins/images/13429/small/ovr_logo.png?1608518911",
+                "large": "https://assets.coingecko.com/coins/images/13429/large/ovr_logo.png?1608518911",
+                "slug": "ovr",
+                "price_btc": 3.91258099238711e-05,
+                "score": 1
+            }
+        },
+        {
+            "item": {
+                "id": "vulcan-forged",
+                "coin_id": 14770,
+                "name": "Vulcan Forged",
+                "symbol": "PYR",
+                "market_cap_rank": 240,
+                "thumb": "https://assets.coingecko.com/coins/images/14770/thumb/1617088937196.png?1619414736",
+                "small": "https://assets.coingecko.com/coins/images/14770/small/1617088937196.png?1619414736",
+                "large": "https://assets.coingecko.com/coins/images/14770/large/1617088937196.png?1619414736",
+                "slug": "vulcan-forged",
+                "price_btc": 0.0002973310250189943,
+                "score": 2
+            }
+        },
+        {
+            "item": {
+                "id": "polkabridge",
+                "coin_id": 13744,
+                "name": "PolkaBridge",
+                "symbol": "PBR",
+                "market_cap_rank": 507,
+                "thumb": "https://assets.coingecko.com/coins/images/13744/thumb/symbol-whitebg200x200.png?1611377553",
+                "small": "https://assets.coingecko.com/coins/images/13744/small/symbol-whitebg200x200.png?1611377553",
+                "large": "https://assets.coingecko.com/coins/images/13744/large/symbol-whitebg200x200.png?1611377553",
+                "slug": "polkabridge",
+                "price_btc": 3.989131159722018e-05,
+                "score": 3
+            }
+        },
+        {
+            "item": {
+                "id": "kadena",
+                "coin_id": 3693,
+                "name": "Kadena",
+                "symbol": "KDA",
+                "market_cap_rank": 65,
+                "thumb": "https://assets.coingecko.com/coins/images/3693/thumb/djLWD6mR_400x400.jpg?1591080616",
+                "small": "https://assets.coingecko.com/coins/images/3693/small/djLWD6mR_400x400.jpg?1591080616",
+                "large": "https://assets.coingecko.com/coins/images/3693/large/djLWD6mR_400x400.jpg?1591080616",
+                "slug": "kadena",
+                "price_btc": 0.0003144424958449183,
+                "score": 4
+            }
+        },
+        {
+            "item": {
+                "id": "adapad",
+                "coin_id": 18273,
+                "name": "ADAPad",
+                "symbol": "ADAPAD",
+                "market_cap_rank": 492,
+                "thumb": "https://assets.coingecko.com/coins/images/18273/thumb/EhSqPTtG_400x400.jpg?1631181091",
+                "small": "https://assets.coingecko.com/coins/images/18273/small/EhSqPTtG_400x400.jpg?1631181091",
+                "large": "https://assets.coingecko.com/coins/images/18273/large/EhSqPTtG_400x400.jpg?1631181091",
+                "slug": "adapad",
+                "price_btc": 1.4388595311494917e-05,
+                "score": 5
+            }
+        },
+        {
+            "item": {
+                "id": "binancecoin",
+                "coin_id": 825,
+                "name": "Binance Coin",
+                "symbol": "BNB",
+                "market_cap_rank": 3,
+                "thumb": "https://assets.coingecko.com/coins/images/825/thumb/binance-coin-logo.png?1547034615",
+                "small": "https://assets.coingecko.com/coins/images/825/small/binance-coin-logo.png?1547034615",
+                "large": "https://assets.coingecko.com/coins/images/825/large/binance-coin-logo.png?1547034615",
+                "slug": "binance-coin",
+                "price_btc": 0.010655303366203206,
+                "score": 6
+            }
+        }
+    ],
+    "exchanges": []
+}
