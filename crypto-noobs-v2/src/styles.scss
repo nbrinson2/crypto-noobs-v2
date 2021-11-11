@@ -17,3 +17,88 @@ html {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+// Header design
+
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 30px;
+
+    &-text-blue {
+        color: #c6e2ff;
+        font-size: 85px;
+        text-align: center;
+        line-height: 1;
+        margin: 30px;
+        animation: neon-blue 0.08s ease-in-out infinite alternate;
+    }
+
+    &-text-green {
+        color: #c6e2ff;
+        font-size: 85px;
+        text-align: center;
+        line-height: 1;
+        margin: 30px;
+        animation: neon-green 0.08s ease-in-out infinite alternate;
+    }    
+}
+
+// animation
+
+@keyframes neon-blue {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
+            0 0 54px rgba(30, 132, 242, 0.92);
+    }
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42),
+            0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88),
+            0 0 60px rgba(30, 132, 242, 1);
+    }
+}
+
+@keyframes neon-green {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(207, 255, 0, 0.52), 0 0 21px rgba(207, 255, 0, 0.92), 0 0 34px rgba(207, 255, 0, 0.78),
+            0 0 54px rgba(207, 255, 0, 0.92);
+    }
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42),
+            0 0 12px rgba(207, 255, 0, 0.58), 0 0 22px rgba(207, 255, 0, 0.84), 0 0 38px rgba(207, 255, 0, 0.88),
+            0 0 60px rgba(207, 255, 0, 1);
+    }
+}
+
+/* Animate neon flicker */
+@keyframes flicker {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        text-shadow:
+            -0.2rem -0.2rem 1rem #fff,
+            0.2rem 0.2rem 1rem #fff,
+            0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color),
+            0 0 6rem var(--neon-text-color),
+            0 0 8rem var(--neon-text-color),
+            0 0 10rem var(--neon-text-color);
+        
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
