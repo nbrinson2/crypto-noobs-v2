@@ -8,3 +8,12 @@
 .contact-us-header p {
     color: white;
 }
+
+button,
+input {
+    border-radius: 15px;
+}
+
+form p:nth-child(4) input {
+    height: 100px;
+}
