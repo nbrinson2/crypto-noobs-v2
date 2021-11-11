@@ -19,6 +19,8 @@ export class AppComponent {
   public showFiller: boolean = true;
   public firstInstanceOfAllLettersArray?: string[];
   public showMainScreen = true;
+  public showTrendingScreen = false;
+  public showGlossaryScreen = false;
 
   @ViewChild('search-component') searchComponent: any;
 
@@ -78,11 +80,21 @@ export class AppComponent {
   }
 
   public navigate(value: string) {
+    window.scrollTo(0,0);
     if(value.includes('glossary')) {
       this.showMainScreen = false;
+      this.showTrendingScreen = false;
+      this.showGlossaryScreen = true;
     }
     else if (value.includes('home')) {
       this.showMainScreen = true;
+      this.showTrendingScreen = false;
+      this.showGlossaryScreen = false;
+    }
+    else if (value.includes('trending')) {
+      this.showMainScreen = false;
+      this.showTrendingScreen = true;
+      this.showGlossaryScreen = false;
     }
   }
 }

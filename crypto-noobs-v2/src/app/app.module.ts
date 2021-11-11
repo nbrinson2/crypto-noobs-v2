@@ -27,6 +27,9 @@ import { MatRadioModule } from "@angular/material/radio";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SingleTerminologyComponent } from './single-terminology/single-terminology.component';
 import { SearchAbcComponent } from './search-abc/search-abc.component';
+import { TrendingComponent } from './trending/trending.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TrendingCardComponent } from './trending/trending-card/trending-card.component';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { SearchAbcComponent } from './search-abc/search-abc.component';
     FaqComponent,
     SingleTerminologyComponent,
     SearchAbcComponent,
-    FilterPipe
+    FilterPipe,
+    TrendingComponent,
+    TrendingCardComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { SearchAbcComponent } from './search-abc/search-abc.component';
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
