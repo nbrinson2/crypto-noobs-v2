@@ -20,6 +20,7 @@ export class TrendingComponent implements OnInit {
   public gradientRadius?: number;
   public elementMouseIsOver?: any;
   public e?: any;
+  public bitcoinInfo?: any;
 
   constructor(
     private coinGeckoService: CoingeckoServiceService,
@@ -30,6 +31,7 @@ export class TrendingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrending();
+    this.getBitcoinInfo();
     this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
   }
 
@@ -44,6 +46,21 @@ export class TrendingComponent implements OnInit {
       this.getCoinInfo(trendingResult.coins[0].item.id);
       this.coins = trendingResult.coins;
     });
+
+    this.coinGeckoService.getCoinInfo('proton').subscribe((coin: any) => {
+      console.log(coin);
+    });
+  }
+
+  public getBitcoinInfo() {
+    this.coinGeckoService.getBitcoinInfo().subscribe((bitcoinResult: any) => {
+      // console.log(typeof bitcoinResult.market_data.current_price.usd);
+      this.bitcoinInfo = bitcoinResult;
+    })
+  }
+
+  public calculateCoinPrice(coinPrice: number, bitcoinPrice: number) {
+    return '$' + (coinPrice * bitcoinPrice).toFixed(4);
   }
 
   public getCoinInfo(id: string) {

@@ -20,4 +20,8 @@ export class CoingeckoServiceService {
   public getCoinInfo(id: string): Observable<any> {
     return this.httpClient.get('https://api.coingecko.com/api/v3/coins/' + id);
   }
+
+  public getBitcoinInfo(): Observable<any> {
+    return this.httpClient.get('https://api.coingecko.com/api/v3/coins/bitcoin');
+  }
 }

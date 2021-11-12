@@ -31,14 +31,41 @@
 </div> -->
 
 <header class="site-header">
-    <h1 class="site-header-text">
+    <h1 class="site-header-text-blue">
         TRENDING
     </h1>
 </header>
 
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
+<div #coins *ngFor="let coin of coins; trackBy:coinIdentity">
+    <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1">
+            <div class="coin-container">
+                <div class="coin-image">
+                    <img class="coin-img rounded-circle" src="{{coin.item.large}}" alt="coin avatar" />
+                </div>
+                <div class="coin-description">
+                    <h5 class="coin-symbol">{{coin.item.symbol}}</h5>
+                    <h7 class="coin-name">{{coin.item.name}}</h7>
+                </div>
+                <div class="coin-price">
+                    <h4 class="coin-price">{{calculateCoinPrice(coin.item.price_btc, bitcoinInfo.market_data.current_price.usd)}}</h4>
+                    <!-- <h4 class="coin-price">{{Math.round(coin.item.price_btc * bitcoinInfo.market_data.current_price.usd)}}</h4> -->
+                </div>
+            </div>
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+    
+        </div>
+        <div class="flexbox-item flexbox-item-3">
+    
+        </div>
+    </div>
+</div>
 
+<!-- Trending coins normal div -->
+<!-- <div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        
     </div>
     <div class="flexbox-item flexbox-item-2">
 
@@ -112,4 +139,99 @@
     <div class="flexbox-item flexbox-item-3">
 
     </div>
+</div> -->
+
+
+
+<!-- Trending coins with trending cards inside div -->
+<!-- <div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
 </div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div>
+<div class="flexbox-container">
+    <div class="flexbox-item flexbox-item-1">
+        <app-trending-card></app-trending-card>
+    </div>
+    <div class="flexbox-item flexbox-item-2">
+        <app-trending-card></app-trending-card>
+
+    </div>
+    <div class="flexbox-item flexbox-item-3">
+        <app-trending-card></app-trending-card>
+
+    </div>
+</div> -->

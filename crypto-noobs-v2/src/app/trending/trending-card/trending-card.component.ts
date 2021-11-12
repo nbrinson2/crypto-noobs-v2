@@ -3,7 +3,7 @@ import { fromEvent } from 'rxjs';
 import { mapTo, delay, share, switchMap, map, merge, repeat, takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'card',
+  selector: 'app-trending-card',
   templateUrl: './trending-card.component.html',
   styleUrls: ['./trending-card.component.scss']
 })

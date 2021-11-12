@@ -11,6 +11,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { FilterPipe } from './search-abc/filter.pipe';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -65,7 +66,8 @@ import { TrendingCardComponent } from './trending/trending-card/trending-card.co
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
