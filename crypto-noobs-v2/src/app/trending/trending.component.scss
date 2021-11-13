@@ -1,3 +1,96 @@
+.flexbox-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flexbox-item {
+    width: 400px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px;
+    // border: 1px solid #cfff00;
+    box-shadow: 0 1px 2px #cfff00, 0 2px 4px #cfff00, 0 4px 8px #cfff00;
+    // 0 8px 16px #cfff00,
+    // 0 16px 32px #cfff00,
+    // 0 32px 64px #cfff00;
+}
+
+.flexbox-item-1 {
+    min-height: 60px;
+    max-height: 80px;
+}
+
+.flexbox-item-2 {
+    min-height: 60px;
+    max-height: 80px;
+}
+
+.flexbox-item-3 {
+    min-height: 60px;
+    max-height: 80px;
+}
+
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 30px;
+
+    &-text {
+        color: #c6e2ff;
+        font-size: 100px;
+        text-align: center;
+        line-height: 1;
+        animation: neon 0.08s ease-in-out infinite alternate;
+    }
+}
+
+
+
+
+// Coin profile
+
+img {
+    display: inline-block;
+    margin: auto;
+    max-width: 100%;
+    border-radius: 50%;
+    vertical-align: middle;
+    max-height: 60px;
+    transition: transform .4s ease-in-out;
+}
+
+.coin-image {
+    width: 28%;
+    max-width: 150px;
+    max-height: 80px;
+}
+
+.coin-description {
+    width: 68%;
+    padding-left: 5%;
+}
+
+.coin-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 100%;
+
+    &:hover img {
+        transform: rotate(360deg);
+    }
+}
+
+.coin-symbol {
+    color: #2565FD;
+}
+
+
+
+
 // mat-grid-tile {
 //     // margin: 10px;
 //     border-radius: 15px;
@@ -39,64 +132,3 @@
 // .content {
 //     position: relative;
 // }
-
-.flexbox-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.flexbox-item {
-    width: 300px;
-    margin: 10px;
-    border-radius: 15px;
-
-    padding: 10px;
-    // border: 1px solid #cfff00;
-    box-shadow: 0 1px 2px #cfff00, 0 2px 4px #cfff00, 0 4px 8px #cfff00;
-    // 0 8px 16px #cfff00,
-    // 0 16px 32px #cfff00,
-    // 0 32px 64px #cfff00;
-}
-
-.flexbox-item-1 {
-    min-height: 60px;
-}
-
-.flexbox-item-2 {
-    min-height: 60px;
-}
-
-.flexbox-item-3 {
-    min-height: 60px;
-}
-
-.site-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 30px;
-
-    &-text {
-        color: #c6e2ff;
-        font-size: 100px;
-        text-align: center;
-        line-height: 1;
-        animation: neon 0.08s ease-in-out infinite alternate;
-    }
-}
-
-// animation
-
-@keyframes neon {
-    from {
-        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
-            0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
-            0 0 54px rgba(30, 132, 242, 0.92);
-    }
-    to {
-        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42),
-            0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88),
-            0 0 60px rgba(30, 132, 242, 1);
-    }
-}

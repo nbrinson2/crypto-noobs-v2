@@ -1,115 +1,31 @@
-<!-- <div class="container">
-    <div #coins *ngFor="let coin of coins; trackBy:coinIdentity" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()" (mousemove)="onMouseMove($event)">
-        <mat-grid-list [cols]="breakpoint" rowHeight="4:1" (window:resize)="onResize($event)" [gutterSize]="'25px'">
-            <mat-grid-tile class="tile">
-                <mat-card class="inside-grid-tile">
-                    <span class="gradient" [ngStyle]="gradientStyle(coin)"></span>
-                    <span class="content">
-                        <div mat-card-avatar style="background-image: url({{coin.item.small}}); background-size: contain; display: flex; float: left;"></div>
-                        <mat-card-header class="card-header">
-                            <mat-card-title>{{coin.item.symbol}}</mat-card-title>
-                            <mat-card-subtitle>{{coin.item.name}}</mat-card-subtitle>
-                        </mat-card-header>
-                    </span>
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile class="tile">
-    
-                <mat-card>
-                    <span class="gradient" [ngStyle]="gradientStyle(coin)"></span>
-                    <span class="content">
-                        <mat-card-header>
-                            <div mat-card-avatar style="background-image: url({{coin.item.small}}); background-size: contain;"></div>
-                            <mat-card-title>{{coin.item.symbol}}</mat-card-title>
-                            <mat-card-subtitle>{{coin.item.name}}</mat-card-subtitle>
-                        </mat-card-header>
-                    </span>
-                </mat-card>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
-</div> -->
-
 <header class="site-header">
-    <h1 class="site-header-text">
+    <h1 class="site-header-text-blue">
         TRENDING
     </h1>
 </header>
 
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
-    </div>
-</div>
-<div class="flexbox-container">
-    <div class="flexbox-item flexbox-item-1">
-
-    </div>
-    <div class="flexbox-item flexbox-item-2">
-
-    </div>
-    <div class="flexbox-item flexbox-item-3">
-
+<div #coins *ngFor="let coin of coins; trackBy:coinIdentity">
+    <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1" (click)="showOverlay(coin.item.id)">
+            <div class="coin-container">
+                <div class="coin-image">
+                    <img class="coin-img rounded-circle" src="{{coin.item.large}}" alt="coin avatar" />
+                </div>
+                <div class="coin-description">
+                    <h5 class="coin-symbol">{{coin.item.symbol}}</h5>
+                    <h7 class="coin-name">{{coin.item.name}}</h7>
+                </div>
+                <div class="coin-price">
+                    <h4 class="coin-price">{{calculateCoinPrice(coin.item.price_btc, bitcoinInfo.market_data.current_price.usd)}}</h4>
+                    <!-- <h4 class="coin-price">{{Math.round(coin.item.price_btc * bitcoinInfo.market_data.current_price.usd)}}</h4> -->
+                </div>
+            </div>
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+    
+        </div>
+        <div class="flexbox-item flexbox-item-3">
+    
+        </div>
     </div>
 </div>

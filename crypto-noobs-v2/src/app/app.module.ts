@@ -11,6 +11,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { FilterPipe } from './search-abc/filter.pipe';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,7 +30,7 @@ import { SingleTerminologyComponent } from './single-terminology/single-terminol
 import { SearchAbcComponent } from './search-abc/search-abc.component';
 import { TrendingComponent } from './trending/trending.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TrendingCardComponent } from './trending/trending-card/trending-card.component';
+import { CoinProfileComponent } from './coin-profile/coin-profile.component';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { TrendingCardComponent } from './trending/trending-card/trending-card.co
     SearchAbcComponent,
     FilterPipe,
     TrendingComponent,
-    TrendingCardComponent
+    CoinProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { TrendingCardComponent } from './trending/trending-card/trending-card.co
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

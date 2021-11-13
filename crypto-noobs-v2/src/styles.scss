@@ -33,7 +33,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         text-align: center;
         line-height: 1;
         margin: 30px;
-        animation: neon-blue 0.08s ease-in-out infinite alternate;
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
+            0 0 54px rgba(30, 132, 242, 0.92);
     }
 
     &-text-green {
@@ -42,7 +44,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         text-align: center;
         line-height: 1;
         margin: 30px;
-        animation: neon-green 0.08s ease-in-out infinite alternate;
+        // animation: neon-green 0.08s ease-in-out infinite alternate;
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
+            0 0 12px rgba(207, 255, 0, 0.52), 0 0 21px rgba(207, 255, 0, 0.92), 0 0 34px rgba(207, 255, 0, 0.78),
+            0 0 54px rgba(207, 255, 0, 0.92);
     }    
 }
 
@@ -102,3 +107,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         box-shadow: none;
     }    
 }
+
+
+// Overlay
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    &.dark-backdrop {
+      background: #000;
+      opacity: 0.85 !important;
+    }
+  }
