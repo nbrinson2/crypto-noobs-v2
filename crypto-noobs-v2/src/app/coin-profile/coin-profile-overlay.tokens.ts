@@ -1,5 +1,4 @@
 import { InjectionToken } from '@angular/core';
+import { CoinGeckoCoin } from '../types/coin.types';
 
-import { Image } from '../types/crypto-noobs-overlay-config.type';
-
-export const FILE_PREVIEW_DIALOG_DATA = new InjectionToken<Image>('FILE_PREVIEW_DIALOG_DATA');
+export const COIN_PROFILE_DIALOG_DATA = new InjectionToken<CoinGeckoCoin>('COIN_PROFILE');

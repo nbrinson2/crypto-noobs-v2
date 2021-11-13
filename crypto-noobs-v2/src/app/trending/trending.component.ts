@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren } 
 import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
 import { CoingeckoServiceService } from '../services/coingecko-service.service';
 import { OverlayService } from '../services/overlay.service';
-import { STATIC_FILE_DATE } from '../types/data';
+import { CoinGeckoCoin } from '../types/coin.types';
 
 @Component({
   selector: 'app-trending',
@@ -11,7 +11,7 @@ import { STATIC_FILE_DATE } from '../types/data';
 })
 export class TrendingComponent implements OnInit {
   public coins: any;
-  public coinSymbol = 'ENS';
+  public coinInfoList: CoinGeckoCoin[] = [];
 
   // Responsive
   public breakpoint: any;
@@ -24,9 +24,6 @@ export class TrendingComponent implements OnInit {
   public elementMouseIsOver?: any;
   public e?: any;
   public bitcoinInfo?: any;
-
-  // Overlay
-  public files = STATIC_FILE_DATE;
 
   constructor(
     private coinGeckoService: CoingeckoServiceService,
@@ -51,14 +48,22 @@ export class TrendingComponent implements OnInit {
 
   public getTrending() {
     this.coinGeckoService.getTrending().subscribe((trendingResult: any) => {
-      console.log(trendingResult);
-      this.getCoinInfo(trendingResult.coins[0].item.id);
+      console.log(trendingResult.coins);
+      this.getCoinInfoForTrendingCoins(trendingResult.coins);
       this.coins = trendingResult.coins;
     });
+  }
 
-    this.coinGeckoService.getCoinInfo('proton').subscribe((coin: any) => {
-      console.log(coin);
+  public getCoinInfoForTrendingCoins(coinList: any) {
+    coinList.forEach((coin: any) => {
+      this.coinGeckoService.getCoinInfo(coin.item.id).subscribe((coin: CoinGeckoCoin) => {
+        console.log(coin);
+        this.coinInfoList.push(coin);
+      });
     });
+
+    console.log(this.coinInfoList);
+
   }
 
   public getBitcoinInfo() {
@@ -80,11 +85,16 @@ export class TrendingComponent implements OnInit {
 
 
   // Overlay
-  public showOverlay(file: any) {
-    // Returns a handle to the open overlay
-    let dialogRef: CoinProfileOverlayRef = this.overlayService.open({
-      image: file
-    });
+  public showOverlay(coinId: string) {
+    this.coinInfoList.forEach((coin) => {
+      if (coin.id.includes(coinId)) {
+        // Returns a handle to the open overlay
+        let dialogRef: CoinProfileOverlayRef = this.overlayService.open({
+          coin: coin
+        });
+
+      }
+    })
   }
 
 
@@ -124,7 +134,7 @@ export class TrendingComponent implements OnInit {
   public onMouseMove(event: MouseEvent) {
     let x = event.clientX;
     let y = event.clientY;
-    this.elementMouseIsOver = document.elementFromPoint(x,y) as HTMLElement;
+    this.elementMouseIsOver = document.elementFromPoint(x, y) as HTMLElement;
     // console.log(this.elementMouseIsOver);
 
     this.gradientLeft = event.pageX - this.element.nativeElement.offsetLeft;

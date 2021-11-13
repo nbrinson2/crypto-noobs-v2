@@ -2,7 +2,7 @@ import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angula
 import { fromEvent } from 'rxjs';
 import { delay, map, mapTo, repeat, share, switchMap, merge, takeUntil } from 'rxjs/operators';
 import { CoinProfileOverlayRef } from './coin-profile-overlay-ref';
-import { FILE_PREVIEW_DIALOG_DATA } from './coin-profile-overlay.tokens';
+import { COIN_PROFILE_DIALOG_DATA } from './coin-profile-overlay.tokens';
 
 @Component({
   selector: 'app-coin-profile',
@@ -45,7 +45,7 @@ export class CoinProfileComponent implements OnInit {
   }
   constructor(
     private dialogRef: CoinProfileOverlayRef,
-    @Inject(FILE_PREVIEW_DIALOG_DATA) public image: any
+    @Inject(COIN_PROFILE_DIALOG_DATA) public coin: any
   ) { }
 
   ngOnInit() {
@@ -66,6 +66,7 @@ export class CoinProfileComponent implements OnInit {
       this.mouseY = e.mouseY;
     })
 
+    console.log(this.coin);
   }
   ngAfterViewInit() {
     this.width = this.card?.nativeElement.offsetWidth;

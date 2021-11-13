@@ -2,15 +2,15 @@ import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { ComponentRef, Injectable, Injector } from '@angular/core';
 import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
-import { FILE_PREVIEW_DIALOG_DATA } from '../coin-profile/coin-profile-overlay.tokens';
+import { COIN_PROFILE_DIALOG_DATA } from '../coin-profile/coin-profile-overlay.tokens';
 import { CoinProfileComponent } from '../coin-profile/coin-profile.component';
-import { CryptoNoobsOverlayConfig } from '../types/crypto-noobs-overlay-config.type';
+import { CryptoNoobsOverlayConfig } from '../types/crypto-noobs-overlay-config.types';
 
 const DEFAULT_CONFIG: CryptoNoobsOverlayConfig = {
   hasBackdrop: true,
   backdropClass: 'dark-backdrop',
   panelClass: 'tm-file-preview-dialog-panel',
-  image: undefined
+  coin: undefined
 }
 
 
@@ -71,7 +71,7 @@ export class OverlayService {
 
     // Set custom injection tokens
     injectionTokens.set(CoinProfileOverlayRef, dialogRef);
-    injectionTokens.set(FILE_PREVIEW_DIALOG_DATA, config.image);
+    injectionTokens.set(COIN_PROFILE_DIALOG_DATA, config.coin);
 
     // Instantiate new PortalInjector
     return new PortalInjector(this.injector, injectionTokens);
