@@ -1,5 +1,8 @@
 import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
 import { CoingeckoServiceService } from '../services/coingecko-service.service';
+import { OverlayService } from '../services/overlay.service';
+import { STATIC_FILE_DATE } from '../types/data';
 
 @Component({
   selector: 'app-trending',
@@ -22,8 +25,14 @@ export class TrendingComponent implements OnInit {
   public e?: any;
   public bitcoinInfo?: any;
 
+  // Overlay
+  public files = STATIC_FILE_DATE;
+
   constructor(
     private coinGeckoService: CoingeckoServiceService,
+
+    // Overlay
+    private overlayService: OverlayService,
 
     // Hover
     private element: ElementRef<HTMLElement>
@@ -68,6 +77,16 @@ export class TrendingComponent implements OnInit {
       // console.log(coin);
     });
   }
+
+
+  // Overlay
+  public showOverlay(file: any) {
+    // Returns a handle to the open overlay
+    let dialogRef: CoinProfileOverlayRef = this.overlayService.open({
+      image: file
+    });
+  }
+
 
   // Responsive
   public onResize(event: any) {

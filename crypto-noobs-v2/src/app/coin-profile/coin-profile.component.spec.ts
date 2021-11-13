@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrendingCardComponent } from './trending-card.component';
+import { CoinProfileComponent } from './coin-profile.component';
 
-describe('TrendingCardComponent', () => {
-  let component: TrendingCardComponent;
-  let fixture: ComponentFixture<TrendingCardComponent>;
+describe('CoinProfileComponent', () => {
+  let component: CoinProfileComponent;
+  let fixture: ComponentFixture<CoinProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrendingCardComponent ]
+      declarations: [ CoinProfileComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrendingCardComponent);
+    fixture = TestBed.createComponent(CoinProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

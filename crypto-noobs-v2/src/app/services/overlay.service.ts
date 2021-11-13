@@ -1,23 +1,88 @@
-import { Overlay } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { Injectable } from '@angular/core';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
+import { ComponentRef, Injectable, Injector } from '@angular/core';
+import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
+import { FILE_PREVIEW_DIALOG_DATA } from '../coin-profile/coin-profile-overlay.tokens';
+import { CoinProfileComponent } from '../coin-profile/coin-profile.component';
+import { CryptoNoobsOverlayConfig } from '../types/crypto-noobs-overlay-config.type';
+
+const DEFAULT_CONFIG: CryptoNoobsOverlayConfig = {
+  hasBackdrop: true,
+  backdropClass: 'dark-backdrop',
+  panelClass: 'tm-file-preview-dialog-panel',
+  image: undefined
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OverlayService {
 
-  constructor(private overlay: Overlay) { }
 
-  public open() {
-    // Returns an OverlayRef (which is a PortalHost)
-    const overlayRef = this.overlay.create();
+  constructor(
+    private overlay: Overlay,
+    private injector: Injector
+  ) { }
 
-    // Create ComponentPortal that can be attached to a PortalHost
-    // const filePreviewPortal = new ComponentPortal(CoinProfileComponent);
+  public open(config: CryptoNoobsOverlayConfig = {}) {
+    // Override default configuration
+    const dialogConfig = { ...DEFAULT_CONFIG, ...config };
 
-    // Attach ComponentPortal to PortalHost
-    // overlayRef.attach(filePreviewPortal);
+    // Returns an overlayRef which is a portalHost
+    const overlayRef = this.createOverlay(dialogConfig);
+
+    // Instantiate remote control
+    const dialogRef = new CoinProfileOverlayRef(overlayRef);
+
+    const overlayComponent = this.attachDialogContainer(overlayRef, dialogConfig, dialogRef);
+
+    // Subscribe to a stream that emits when the backdrop was clicked
+    overlayRef.backdropClick().subscribe(_ => dialogRef.close());
+
+    // Return remote control
+    return dialogRef;
   }
 
+  private getOverlayConfig(config: CryptoNoobsOverlayConfig): OverlayConfig {
+    const positionStrategy = this.overlay.position().global().centerHorizontally().centerVertically();
+    const overlayConfig = new OverlayConfig({
+      hasBackdrop: config.hasBackdrop,
+      backdropClass: config.backdropClass,
+      panelClass: config.panelClass,
+      scrollStrategy: this.overlay.scrollStrategies.block(),
+      positionStrategy,
+    });
+
+    return overlayConfig;
+  }
+
+  private createOverlay(config: CryptoNoobsOverlayConfig) {
+    // Returns an OverlayConfig
+    const overlayConfig = this.getOverlayConfig(config);
+
+    // Returns an OverlayRef
+    return this.overlay.create(overlayConfig);
+  }
+
+  private createInjector(config: CryptoNoobsOverlayConfig, dialogRef: CoinProfileOverlayRef): PortalInjector {
+    // Instantiate new WeakMap for our custom injection tokens
+    const injectionTokens = new WeakMap();
+
+    // Set custom injection tokens
+    injectionTokens.set(CoinProfileOverlayRef, dialogRef);
+    injectionTokens.set(FILE_PREVIEW_DIALOG_DATA, config.image);
+
+    // Instantiate new PortalInjector
+    return new PortalInjector(this.injector, injectionTokens);
+  }
+
+  private attachDialogContainer(overlayRef: OverlayRef, config: CryptoNoobsOverlayConfig, dialogRef: CoinProfileOverlayRef) {
+    const injector = this.createInjector(config, dialogRef);
+
+    const containerPortal = new ComponentPortal(CoinProfileComponent, null, injector);
+    const containerRef: ComponentRef<CoinProfileComponent> = overlayRef.attach(containerPortal);
+
+    return containerRef.instance;
+  }
 }

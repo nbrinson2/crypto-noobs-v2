@@ -30,7 +30,7 @@ import { SingleTerminologyComponent } from './single-terminology/single-terminol
 import { SearchAbcComponent } from './search-abc/search-abc.component';
 import { TrendingComponent } from './trending/trending.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TrendingCardComponent } from './trending/trending-card/trending-card.component';
+import { CoinProfileComponent } from './coin-profile/coin-profile.component';
 
 
 @NgModule({
@@ -48,7 +48,7 @@ import { TrendingCardComponent } from './trending/trending-card/trending-card.co
     SearchAbcComponent,
     FilterPipe,
     TrendingComponent,
-    TrendingCardComponent
+    CoinProfileComponent
   ],
   imports: [
     BrowserModule,

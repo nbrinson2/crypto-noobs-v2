@@ -38,7 +38,7 @@
 
 <div #coins *ngFor="let coin of coins; trackBy:coinIdentity">
     <div class="flexbox-container">
-        <div class="flexbox-item flexbox-item-1">
+        <div class="flexbox-item flexbox-item-1" (click)="showOverlay(files[0])">
             <div class="coin-container">
                 <div class="coin-image">
                     <img class="coin-img rounded-circle" src="{{coin.item.large}}" alt="coin avatar" />

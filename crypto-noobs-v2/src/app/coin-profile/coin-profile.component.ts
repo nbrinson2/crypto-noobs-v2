@@ -1,13 +1,15 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { mapTo, delay, share, switchMap, map, merge, repeat, takeUntil } from 'rxjs/operators';
+import { delay, map, mapTo, repeat, share, switchMap, merge, takeUntil } from 'rxjs/operators';
+import { CoinProfileOverlayRef } from './coin-profile-overlay-ref';
+import { FILE_PREVIEW_DIALOG_DATA } from './coin-profile-overlay.tokens';
 
 @Component({
-  selector: 'app-trending-card',
-  templateUrl: './trending-card.component.html',
-  styleUrls: ['./trending-card.component.scss']
+  selector: 'app-coin-profile',
+  templateUrl: './coin-profile.component.html',
+  styleUrls: ['./coin-profile.component.scss']
 })
-export class TrendingCardComponent implements OnInit {
+export class CoinProfileComponent implements OnInit {
   public height: any;
   public width: any;
   public backgroundImage: any;
@@ -41,6 +43,11 @@ export class TrendingCardComponent implements OnInit {
   get nativeElement(): HTMLElement {
     return this.card?.nativeElement;
   }
+  constructor(
+    private dialogRef: CoinProfileOverlayRef,
+    @Inject(FILE_PREVIEW_DIALOG_DATA) public image: any
+  ) { }
+
   ngOnInit() {
     const mouseMove$ = fromEvent<MouseEvent>(this.card?.nativeElement, 'mousemove');
     const mouseLeave$ = fromEvent<MouseEvent>(this.card?.nativeElement, 'mouseleave').pipe(
