@@ -53,9 +53,12 @@ body, h1, h2, h3, h4, h5, h6 {
 
 /* Remove margins from "page content" on small screens */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     #main {
-        margin-left: 0
+        margin-left: 0;
+    }
+    .sidebar {
+        display: none;
     }
 }
 
@@ -165,7 +168,7 @@ main .sidebar {
 #main {
     transition: margin-left 0.5s;
     padding: 16px;
-    margin-left: 85px;
+    // margin-left: 85px;
 }
 
 @media screen and (max-height: 450px) {
