@@ -1,11 +1,30 @@
-#banner {
-    max-width: 100%;
-    margin-top: calc(100vh - 800px);
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: middle;
+    max-width: 900px;
 }
 
-#header {
-    // height: calc(100vh - 65px);
-    height: 100%;
-    margin: 0;
+
+.column {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &img {
+        height: 100%;
+    }
 }
 
+.column img {
+    vertical-align: middle;
+}
+
+.w3-padding-64 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0 !important;
+    height: calc(100vh * 0.95);
+}

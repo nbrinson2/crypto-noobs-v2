@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html,
+body {
+    height: 100%;
+}
 
 html {
     background-color: black;
@@ -9,14 +12,20 @@ html {
 }
 
 .header-text {
-    color: #CFFF00;
+    color: #cfff00;
     font-weight: 900;
     font-size: 40px;
     letter-spacing: 1px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // Header design
 
@@ -29,7 +38,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
     &-text-blue {
         color: #c6e2ff;
-        font-size: 85px;
+        font-size: 7vw;
         text-align: center;
         line-height: 1;
         margin: 30px;
@@ -48,7 +57,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34),
             0 0 12px rgba(207, 255, 0, 0.52), 0 0 21px rgba(207, 255, 0, 0.92), 0 0 34px rgba(207, 255, 0, 0.78),
             0 0 54px rgba(207, 255, 0, 0.92);
-    }    
+    }
 }
 
 // animation
@@ -81,38 +90,47 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Animate neon flicker */
 @keyframes flicker {
-    
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      
-        text-shadow:
-            -0.2rem -0.2rem 1rem #fff,
-            0.2rem 0.2rem 1rem #fff,
-            0 0 2rem var(--neon-text-color),
-            0 0 4rem var(--neon-text-color),
-            0 0 6rem var(--neon-text-color),
-            0 0 8rem var(--neon-text-color),
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
             0 0 10rem var(--neon-text-color);
-        
-        box-shadow:
-            0 0 .5rem #fff,
-            inset 0 0 .5rem #fff,
-            0 0 2rem var(--neon-border-color),
-            inset 0 0 2rem var(--neon-border-color),
-            0 0 4rem var(--neon-border-color),
-            inset 0 0 4rem var(--neon-border-color);        
+
+        box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);
     }
-    
-    20%, 24%, 55% {        
+
+    20%,
+    24%,
+    55% {
         text-shadow: none;
         box-shadow: none;
-    }    
+    }
 }
-
 
 // Overlay
 .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
     &.dark-backdrop {
-      background: #000;
-      opacity: 0.85 !important;
+        background: #000;
+        opacity: 0.85 !important;
     }
-  }
+}
+
+
+// Padding left
+.add-padding-left {
+    padding-left: 45px;
+}
+
+@media (max-width: 800px) {
+    .add-padding-left {
+        padding-left: 0;
+    }
+}
