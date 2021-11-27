@@ -1,0 +1,203 @@
+// /* Center Header */
+// .services-header {
+//     text-align: center;
+//     margin-bottom: 50px;
+// }
+
+// /* Center Table */
+// #wrapper {
+//     max-width: 1050px;
+//     margin: 0px auto 60px auto;
+// }
+
+// #outer {
+//     display: table;
+//     width: 100%;
+//     table-layout: fixed;
+// }
+
+// .itemwrapper {
+//     display: table-cell;
+//     vertical-align: top;
+//     width: 100%;
+//     position: relative;
+//     text-align: center;
+//     color: black;
+//     font-size: 50px;
+// }
+
+// img {
+//     max-width: 100%;
+//     height: auto;
+//     width: 100%;
+// }
+
+// /* Centered text */
+
+// .centered {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     color: white;
+// }
+
+// /* Top right text */
+
+// .top-right {
+//     position: absolute;
+//     top: 8px;
+//     right: 16px;
+// }
+
+// /* Top left text */
+
+// .top-left {
+//     position: absolute;
+//     top: 8px;
+//     left: 16px;
+// }
+
+// .top-left, .top-right {
+//     font-size: 20px;
+//     font-style: italic;
+//     color: #CFFF00;
+// }
+
+.color-overlay {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    bottom: 0;
+    transition: .5s ease;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+// .ico-section, .guide-section, .announcements-section, .active-coins-section {
+//     background: url("../../assets/images/guides.jpg");
+//     background-size: 100% 100%;
+//     background-repeat: no-repeat;
+//     width: 525px;
+//     height: 348.86px;
+// }
+
+// .active-coins-section {
+//     background: url("../../assets/images/activeCoins.jpg");
+// }
+
+// .ico-section {
+//     background: url("../../assets/images/icoListings.jpg");
+// }
+
+// .announcements-section {
+//     background: url("../../assets/images/announcements.jpg");
+// }
+
+// .description {
+//     font-size: 14px;
+//     color: white;
+// }
+
+* {
+    box-sizing: border-box;
+}
+
+.services-component-container {
+    margin: 0;
+    margin-left: 85px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px 0 45px;
+
+    // Every other row switch position of image and text
+    &:nth-child(odd) {
+        padding: 0 4px 0 45px;
+
+        .column:nth-child(1) {
+            order: 2;
+        }
+
+        .column:nth-child(2) {
+            order: 1;
+        }
+    }
+}
+
+/* Create four equal columns that sits next to each other */
+//   .column {
+//     flex: 25%;
+//     max-width: 25%;
+//     padding: 0 4px 0 45px;
+//   }
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    max-width: 50%;
+    padding: 0 4px 0 45px;
+
+    &img {
+        height: 100%;
+    }
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.service-text {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100%;
+}
+
+.description-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+//   @media (max-width: 800px) {
+//     .column {
+//       flex: 50%;
+//       max-width: 50%;
+//     }
+//   }
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+        padding: 30px 0;
+        // flex-direction: column-reverse;
+    }
+    .column:nth-child(2) {
+        padding: 0;
+    }
+    .row {
+        padding-right: 45px;        
+
+        // Switch position of image and text back for correct single column stacking
+        &:nth-child(odd) {
+            padding-right: 45px;
+
+            .column:nth-child(1) {
+                order: 1;
+            }
+    
+            .column:nth-child(2) {
+                order: 2;
+            }
+        }
+        }
+}
