@@ -1,5 +1,6 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
 import { TerminologyService } from './services/terminology.service';
 
 @Component({
@@ -14,7 +15,6 @@ export class AppComponent {
 
   public events?: string[];
   public opened = true;
-  public mini = true;
   public scrollY?: number;
   public showFiller: boolean = true;
   public firstInstanceOfAllLettersArray?: string[];
@@ -22,7 +22,14 @@ export class AppComponent {
   public showTrendingScreen = false;
   public showGlossaryScreen = false;
 
-  @ViewChild('search-component') searchComponent: any;
+  // @ViewChild(NavComponent)
+  // set nav(v: NavComponent) {
+  //   setTimeout(() => {
+  //     this.showMainScreen = v.showMainScreen;
+  //     this.showTrendingScreen = v.showTrendingScreen;
+  //     this.showGlossaryScreen = v.showGlossaryScreen;
+  //   }, 0);
+  // }
 
   constructor(
     public terminologyService: TerminologyService
@@ -58,40 +65,23 @@ export class AppComponent {
     }
   }
 
-  public toggleSidebar() {
-    let mySidebar = document.getElementById("mySidebar");
-    let main = document.getElementById("main");
-
-    if (mySidebar && main) {
-      if (this.mini) {
-        mySidebar.style.width = "250px";
-        main.style.marginLeft = "250px";
-        this.mini = false;
-      } else {
-        mySidebar.style.width = "85px";
-        main.style.marginLeft = "85px";
-        this.mini = true;
-      }
-    }
-  }
-
   public search(value: string) {
     this.searchText = value;
   }
 
-  public navigate(value: string) {
+  public navigate(navTo: string) {
     window.scrollTo(0,0);
-    if(value.includes('glossary')) {
+    if(navTo.includes('glossary')) {
       this.showMainScreen = false;
       this.showTrendingScreen = false;
       this.showGlossaryScreen = true;
     }
-    else if (value.includes('home')) {
+    else if (navTo.includes('home')) {
       this.showMainScreen = true;
       this.showTrendingScreen = false;
       this.showGlossaryScreen = false;
     }
-    else if (value.includes('trending')) {
+    else if (navTo.includes('trending')) {
       this.showMainScreen = false;
       this.showTrendingScreen = true;
       this.showGlossaryScreen = false;

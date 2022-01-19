@@ -1,19 +1,15 @@
-body, h1, h2, h3, h4, h5, h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Poppins", sans-serif;
 }
 
 /* Set the width of the sidebar to 120px */
 
-/* .w3-sidebar {
-    width: 120px;
-    background: #222;
-} */
-
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-
-/* #main {
-    margin-left: 120px;
-} */
 
 .body-background {
     color: white;
@@ -55,34 +51,9 @@ body, h1, h2, h3, h4, h5, h6 {
 
 @media only screen and (max-width: 800px) {
     #main {
-        margin-left: 0;
-    }
-    .sidebar {
-        display: none;
+        margin-left: 0 !important;
     }
 }
-
-/* Autosize sidenav */
-
-/* .example-container {
-    width: 500px;
-    height: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.example-sidenav-content {
-    display: block;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    align-items: left;
-    justify-content: left;
-}
-
-.example-sidenav {
-    padding: 10px;
-    border: none;
-} */
 
 /* Main Content */
 
@@ -110,80 +81,6 @@ body, h1, h2, h3, h4, h5, h6 {
 .terminology {
     display: block;
 }
-
-
-/* Hover Sidebar */
-
-.iwt {
-    display: block;
-}
-
-.material-icons {
-    color: #CFFF00;
-}
-
-.sidebar {
-    height: 100%;
-    width: 85px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: black;
-    transition: 0.5s;
-    overflow-x: hidden;
-    padding-top: 60px;
-    white-space: nowrap;
-}
-
-.sidebar a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    display: block;
-}
-
-.sidebar a:hover {
-    color: #818181;
-    cursor: pointer;
-}
-
-main .sidebar {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.material-icons, .icon-text {
-    vertical-align: middle;
-}
-
-.material-icons {
-    margin-right: 30px
-}
-
-#main {
-    transition: margin-left 0.5s;
-    padding: 16px;
-    // margin-left: 85px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidebar {
-        padding-top: 15px;
-    }
-    .sidebar a {
-        font-size: 18px;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-}
-
-
 
 // Header design
 
@@ -218,32 +115,29 @@ main .sidebar {
     }
 }
 
-
 /* Animate neon flicker */
 @keyframes flicker {
-    
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      
-        text-shadow:
-            -0.2rem -0.2rem 1rem #fff,
-            0.2rem 0.2rem 1rem #fff,
-            0 0 2rem var(--neon-text-color),
-            0 0 4rem var(--neon-text-color),
-            0 0 6rem var(--neon-text-color),
-            0 0 8rem var(--neon-text-color),
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem var(--neon-text-color),
+            0 0 4rem var(--neon-text-color), 0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
             0 0 10rem var(--neon-text-color);
-        
-        box-shadow:
-            0 0 .5rem #fff,
-            inset 0 0 .5rem #fff,
-            0 0 2rem var(--neon-border-color),
-            inset 0 0 2rem var(--neon-border-color),
-            0 0 4rem var(--neon-border-color),
-            inset 0 0 4rem var(--neon-border-color);        
+
+        box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);
     }
-    
-    20%, 24%, 55% {        
+
+    20%,
+    24%,
+    55% {
         text-shadow: none;
         box-shadow: none;
-    }    
+    }
 }
