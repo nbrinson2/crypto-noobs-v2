@@ -1,85 +1,8 @@
 <body class="body-background">
-  <!-- <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
-  </mat-toolbar>
-
-
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened>
-      Sidenav content
-    </mat-sidenav>
-
-    <mat-sidenav-content class="main-content">
-      <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-          <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-          <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-          <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-          <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-        </div>
-      </div>
-
-      <div class="w3-padding-large" id="main">
-        <app-header></app-header>
-        <app-about-us></app-about-us>
-        <app-services></app-services>
-        <app-resources></app-resources>
-        <app-faq></app-faq>
-        <app-contact-us></app-contact-us>
-        <app-footer></app-footer>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container> -->
-
-
-
-  <!-- <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav mat-elevation-z8" mode="side" opened="true">
-      <p>Auto-resizing sidenav</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle
-      </button>
-      <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
-    </div>
-
-    <div class="w3-padding-large" id="main">
-      <app-header></app-header>
-      <app-about-us></app-about-us>
-      <app-services></app-services>
-      <app-resources></app-resources>
-      <app-faq></app-faq>
-      <app-contact-us></app-contact-us>
-      <app-footer></app-footer>
-    </div>
-
-  
-  </mat-drawer-container> -->
-
-
-
-
-  <div id="mySidebar" class="sidebar" (mouseover)="toggleSidebar()" (mouseout)="toggleSidebar()">
-    <a (click)="navigate('home')"><span class="iwt"><i class="material-icons">home</i><span>HOME</span></span></a><br>
-    <a href="#about-us"><span class="iwt"><i class="material-icons">summarize</i><span>MISSION</span></span></a><br>
-    <a (click)="navigate('glossary')"><span class="iwt"><i class="material-icons">assignment</i><span>GLOSSARY</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">add_task</i><span>ICO/IDO
-          LISTINGS</span></span></a><br>
-    <a (click)="navigate('trending')"><span class="iwt"><i
-          class="material-icons">announcement</i><span>TRENDING</span></span></a><br>
-    <a href="#services"><span class="iwt"><i class="material-icons">filter_list</i><span>ACTIVE
-          COINS</span></span></a><br>
-    <a href="#contact-us"><span class="iwt"><i class="material-icons">mail</i><span>CONTACT US</span></span></a><br>
-    <a href="#faq"><span class="iwt"><i class="material-icons">question_answer</i><span>FAQS</span></span></a>
-  </div>
+  <app-nav (navEvent)="navigate($event)"></app-nav>
 
   <div id="main">
+    <div class="overlay"></div>
     <div *ngIf="showMainScreen" class="w3-padding-large homepage">
       <app-header id="home"></app-header>
       <app-about-us id="about-us"></app-about-us>
@@ -107,7 +30,6 @@
     </div>
 
     <div *ngIf="showTrendingScreen" class="w3-padding-large trending">
-      <!-- <div class="w3-padding-large trending"> -->
         <app-trending></app-trending>
     </div>
   </div>
