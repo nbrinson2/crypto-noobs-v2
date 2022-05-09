@@ -5,7 +5,7 @@
 
   &-mobile {
     // background: white;
-    padding: 12px 24px;
+    margin: 12px 24px;
   }
 }
 
@@ -23,8 +23,25 @@
   background-color: black;
   transition: 0.5s;
   overflow-x: hidden;
-  padding-top: 60px;
+  margin-top: 60px;
   white-space: nowrap;
+
+  &.mobile-sidebar {
+    color: red;
+    margin-top: 25px;
+    height: 100%;
+    background: transparent;
+    display: none;
+    
+    .nav-caption {
+      color: red;
+    }
+
+    .mat-nav-list-container {
+      display: none;
+    }
+    
+  }
 }
 
 .sidebar a {
@@ -77,5 +94,11 @@ main .sidebar {
 @media only screen and (max-width: 800px) {
   .sidebar {
       display: none;
+      width: 0;
+
+      &.mobile-sidebar {
+        display: block;
+        width: 85px;
+      }
   }
 }

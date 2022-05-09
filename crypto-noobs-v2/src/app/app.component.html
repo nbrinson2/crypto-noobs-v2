@@ -2,6 +2,7 @@
   <app-nav (navEvent)="navigate($event)"></app-nav>
 
   <div id="main">
+    <div class="overlay"></div>
     <div *ngIf="showMainScreen" class="w3-padding-large homepage">
       <app-header id="home"></app-header>
       <app-about-us id="about-us"></app-about-us>
