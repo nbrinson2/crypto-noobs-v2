@@ -1,12 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { GlossaryComponent } from './glossary/glossary.component';
+import { HomeComponent } from './home/home.component';
+import { IcoComponent } from './ico/ico.component';
+import { TrendingComponent } from './trending/trending.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'glossary', component: GlossaryComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'ico', component: IcoComponent},
   {path: 'login', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
-  {path: 'trending', loadChildren: () => import('./trending/trending.component').then(m => m.TrendingComponent)}
+  {path: 'trending', component: TrendingComponent}
 ]
 
 @NgModule({
