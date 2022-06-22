@@ -1,6 +1,5 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NavComponent } from './nav/nav.component';
+import { Component, HostListener } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { TerminologyService } from './services/terminology.service';
 
 @Component({
@@ -32,7 +31,8 @@ export class AppComponent {
   // }
 
   constructor(
-    public terminologyService: TerminologyService
+    public terminologyService: TerminologyService,
+    private store: AngularFirestore
   ) { }
 
   @HostListener('scroll', ['$event']) // for scroll events of the current element
@@ -48,7 +48,11 @@ export class AppComponent {
     this.firstInstanceOfAllLettersArray = this.terminologyService.getFirstInstanceOfAllLetters();
 
     console.log(this.terminologyService.getFirstInstanceOfAllLetters());
-
+    
+    // Get all collected data from firebase
+    // this.store.collection('contact-us').snapshotChanges().subscribe((response) => {
+    //   console.log('collection response', response);
+    // });
   }
 
 

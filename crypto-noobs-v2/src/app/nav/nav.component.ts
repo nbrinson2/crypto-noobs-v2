@@ -26,8 +26,6 @@ export class NavComponent implements OnInit {
     let matNavList = document.getElementsByClassName('mat-nav-list-container')[0] as HTMLElement;
     let overlay = document.getElementsByClassName('overlay')[0] as HTMLElement;
 
-    console.log(mySidebar?.style.width);
-
     if (sidebarType.includes('full')) {
       if (mySidebar && main) {
         if (this.isMini) {

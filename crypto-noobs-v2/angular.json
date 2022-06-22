@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "crypto-noobs-v2:build:production",
+            "firebaseProject": "crypto-noobs-v2",
+            "firebaseHostingSite": "crypto-noobs-v2"
+          }
         }
       }
     }
