@@ -1,25 +1,72 @@
-<!-- Contact Section -->
-<div class="w3-padding-64 w3-content w3-text-grey contact-header add-padding-left" id="contact">
-    <div class="contact-us-header">
+<div
+  class="w3-padding-64 w3-content w3-text-grey contact-header add-padding-left"
+  id="contact"
+>
+  <div class="contact-us-header">
         <h2 class="header-text site-header-text-blue">CONTACT US</h2>
         <p>Let's get in touch. Send us a message:</p>
     </div>
 
-    <!-- <div class="w3-section">
-        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> USA</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: cryptonoobs@gmail.com</p>
-    </div><br> -->
-
-    <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+    <form [formGroup]="formData" (ngSubmit)="onSubmit(formData.value)">
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="First Name" required name="firstName" formControlName="firstName"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Last Name" required name="lastName" formControlName="lastName"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="email" formControlName="email"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="message" formControlName="message"></p>
         <p class="button-container">
-            <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+            <button class="w3-button w3-light-grey w3-padding-large" type="submit" [disabled]="!formData.valid">
                 <i class="fa fa-paper-plane"></i> SEND MESSAGE
             </button>
         </p>
     </form>
-    <!-- End Contact Section -->
+
+
+  <!-- <div class="container">
+    <h2 class="text-center mb-5">Angular Contact Form Hosted On FireBase</h2>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form [formGroup]="formData" (ngSubmit)="onSubmit(formData.value)">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              formControlName="email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="fullName"
+              placeholder="Full Name"
+              formControlName="fullName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea
+              class="form-control"
+              formControlName="comment"
+              name="comment"
+            >
+            </textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!formData.valid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div> -->
 </div>

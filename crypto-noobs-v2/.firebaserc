@@ -1,4 +1,13 @@
 {
+  "targets": {
+    "crypto-noobs-v2": {
+      "hosting": {
+        "crypto-noobs-v2": [
+          "crypto-noobs-v2"
+        ]
+      }
+    }
+  },
   "projects": {
     "default": "crypto-noobs-v2"
   }
