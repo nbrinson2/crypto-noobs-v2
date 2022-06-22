@@ -43,6 +43,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { HomeComponent } from './home/home.component';
+import { IcoComponent } from './ico/ico.component';
+import { GlossaryComponent } from './glossary/glossary.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
     FilterPipe,
     TrendingComponent,
     CoinProfileComponent,
+    HomeComponent,
+    IcoComponent,
+    GlossaryComponent,
   ],
   imports: [
     AngularFireFunctionsModule,

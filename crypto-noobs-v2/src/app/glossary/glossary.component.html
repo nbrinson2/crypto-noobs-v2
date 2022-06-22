@@ -1,0 +1,15 @@
+<div class="w3-padding-large terminology">
+  <div class="w3-padding-large terminology-header">
+    <app-search-abc (sendSearchTermEvent)="search($event)"></app-search-abc>
+  </div>
+  <div class="terminology-content">
+    <app-single-terminology
+      *ngFor="let term of terms | filter : searchText" 
+      [term]="term.Term"
+      [definition]="term.Definition"
+      attr.id="{{firstInstanceOfAllLettersArray.includes(term.Term) ? term.Term[0].toLowerCase() + '-first' : ''}}"
+      [class]="firstInstanceOfAllLettersArray.includes(term.Term) ? 'first ' + term.Term[0].toLowerCase() : term.Term[0].toLowerCase()"
+      >
+    </app-single-terminology>
+  </div>
+</div>
