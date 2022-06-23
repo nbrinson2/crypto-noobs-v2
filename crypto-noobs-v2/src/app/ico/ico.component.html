@@ -1,30 +1,133 @@
 <header class="site-header">
-  <h1 class="site-header-text-blue">
-      ICO LISTINGS
-  </h1>
+  <h1 class="site-header-text-blue">ICO LISTINGS</h1>
+  <div class="container" id="search">
+    <mat-form-field color="primary" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input (keyup)="sendSearchTerm(search)" matInput [(ngModel)]="search" />
+      <i matSuffix class="material-icons">search</i>
+      <i matSuffix class="material-icons">filter_list</i>
+    </mat-form-field>
+    <br />
+  </div>
 </header>
 
-<!-- <div #coins *ngFor="let coin of coins; trackBy:coinIdentity">
+<div #coins *ngFor="let coin of coins; trackBy: coinIdentity">
   <div class="flexbox-container">
-      <div class="flexbox-item flexbox-item-1" (click)="showOverlay(coin.item.id)">
-          <div class="coin-container">
-              <div class="coin-image">
-                  <img class="coin-img rounded-circle" src="{{coin.item.large}}" alt="coin avatar" />
+    <div
+      class="flexbox-item flexbox-item-1"
+    >
+      <div class="coin-container">
+        <mat-card class="coin-card">
+          <mat-card-header>
+            <div mat-card-avatar class="coin-image">
+              <bg-image>
+                <img
+                  class="coin-img rounded-circle"
+                  src="{{ coin.item.large }}"
+                  alt="coin avatar"
+                />
+              </bg-image>
+            </div>
+            <mat-card-title>{{ coin.item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ coin.item.symbol }}</mat-card-subtitle>
+            <div class="coin-date">
+              <mat-card-title>Release date:</mat-card-title>
+              <mat-card-subtitle>December 27, 2023</mat-card-subtitle>
+            </div>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="flexbox-container-coin-info">
+              <div>
+                <div>Supply:</div>
+                <div>450000000</div>
               </div>
-              <div class="coin-description">
-                  <h5 class="coin-symbol">{{coin.item.symbol}}</h5>
-                  <h7 class="coin-name">{{coin.item.name}}</h7>
+              <div>
+                <div>Cost:</div>
+                <div>$0.15</div>
               </div>
-              <div class="coin-price">
-                  <h4 class="coin-price">{{calculateCoinPrice(coin.item.price_btc, bitcoinInfo.market_data.current_price.usd)}}</h4>
+              <div>
+                <div>
+                  <button mat-button>
+                    Whitepaper
+                    <i matSuffix class="material-icons">description</i>
+                  </button>
+                </div>
               </div>
-          </div>
+              <div>
+                <div>
+                  <button mat-button>
+                    Website
+                    <i matSuffix class="material-icons">language</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+              <!-- <mat-grid-list class="list-container" cols="5" rowHeight="2:1">
+                <div class="tile-container">
+                  <mat-grid-tile class="empty-tile"></mat-grid-tile>
+                  <mat-grid-tile>
+                      <div class="coin-info">
+                        <h4>Supply:</h4>
+                      </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="coin-info">
+                      <h4>450000000</h4>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile colspan="2">
+                    <div class="coin-info">
+                      <button mat-button>
+                        Whitepaper
+                        <i matSuffix class="material-icons">description</i>
+                      </button>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile class="empty-tile"></mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="coin-info">
+                      <h4>Cost:</h4>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="coin-info">
+                      <h4>$0.15</h4>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile colspan="2">
+                    <div class="coin-info">
+                      <button mat-button>
+                        Website
+                        <i matSuffix class="material-icons">language</i>
+                      </button>
+                    </div>
+                  </mat-grid-tile>
+                </div>
+              </mat-grid-list> -->
+          </mat-card-content>
+        </mat-card>
+        <!-- <div class="coin-image">
+          <img
+            class="coin-img rounded-circle"
+            src="{{ coin.item.large }}"
+            alt="coin avatar"
+          />
+        </div>
+        <div class="coin-description">
+          <h5 class="coin-symbol">{{ coin.item.symbol }}</h5>
+          <h7 class="coin-name">{{ coin.item.name }}</h7>
+        </div>
+        <div class="coin-price">
+          <h4 class="coin-price">
+            {{
+              calculateCoinPrice(
+                coin.item.price_btc,
+                bitcoinInfo.market_data.current_price.usd
+              )
+            }}
+          </h4>
+        </div> -->
       </div>
-      <div class="flexbox-item flexbox-item-2">
-  
-      </div>
-      <div class="flexbox-item flexbox-item-3">
-  
-      </div>
+    </div>
   </div>
-</div> -->
+</div>

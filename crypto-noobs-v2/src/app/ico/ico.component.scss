@@ -1,34 +1,28 @@
-.flexbox-container {
+.flexbox-container,
+.flexbox-container-coin-info {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .flexbox-item {
-  width: 400px;
-  margin: 10px;
+  width: 50%;
+  min-width: 375px;
+  margin: 10px 10px 10px 30px;
   border-radius: 15px;
   cursor: pointer;
   padding: 10px;
-  // border: 1px solid #cfff00;
   box-shadow: 0 1px 2px #cfff00, 0 2px 4px #cfff00, 0 4px 8px #cfff00;
   // 0 8px 16px #cfff00,
   // 0 16px 32px #cfff00,
   // 0 32px 64px #cfff00;
 }
 
-.flexbox-item-1 {
-  min-height: 60px;
-  max-height: 80px;
-}
-
-.flexbox-item-2 {
-  min-height: 60px;
-  max-height: 80px;
-}
-
+.flexbox-item-1,
+.flexbox-item-2,
 .flexbox-item-3 {
   min-height: 60px;
-  max-height: 80px;
+  max-height: 500px;
 }
 
 .site-header {
@@ -37,6 +31,7 @@
   align-items: center;
   align-content: center;
   margin: 30px;
+  flex-wrap: wrap;
 
   &-text {
       color: #c6e2ff;
@@ -45,12 +40,34 @@
       line-height: 1;
       animation: neon 0.08s ease-in-out infinite alternate;
   }
+  & h1 {
+    width: 100%;
+  }
 }
 
 
+// Search bar
+#search {
+  width: 100%;
+  max-width: 700px;
+}
 
+i {
+  color: #cfff00;
+  margin: 0px 5px 0px 5px;
+}
+
+mat-form-field {
+  width: 100%;
+  background-color: black;
+}
 
 // Coin profile
+
+.coin-card {
+  min-width: 100%;
+  background: none;
+}
 
 img {
   display: inline-block;
@@ -62,10 +79,8 @@ img {
   transition: transform .4s ease-in-out;
 }
 
-.coin-image {
-  width: 28%;
-  max-width: 150px;
-  max-height: 80px;
+.coin-date {
+  margin-left: auto;
 }
 
 .coin-description {
@@ -73,62 +88,50 @@ img {
   padding-left: 5%;
 }
 
+.coin-info {
+  width: 100%;
+  text-align: left;
+}
+
 .coin-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   max-width: 100%;
+  min-height: 250px;
 
   &:hover img {
       transform: rotate(360deg);
   }
 }
 
+.coin-actions .button-container {
+  float: right;
+}
+
 .coin-symbol {
   color: #2565FD;
 }
 
+.tile-container {
+  text-align: center;
+}
 
+.flexbox-container-coin-info > div {
+  display: flex;
+  // background-color: #2565FD;
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+  max-width: 100%;
+  min-width: 30%;
 
+  > div {
+    width: 50%;
 
-// mat-grid-tile {
-//     // margin: 10px;
-//     border-radius: 15px;
-//     border-color: #cfff00;
-//     border-style: solid;
-//     border-width: 1px;
-// }
+    > button {
+      font-size: 20px;
+    }
+  }
+}
 
-// mat-card {
-//     background: transparent;
-//     width: calc(100%);
-//     height: calc(100%);
-// }
-
-// .inside-grid-tile {
-//     position: absolute;
-//     left: 5px;
-// }
-
-// div {
-//     margin: 25px;
-// }
-
-// // Hover
-// .gradient {
-//     position: absolute;
-//     background: radial-gradient(circle closest-side, #2565fd, transparent);
-//     transform: translate(-50%, -50%);
-//     transition: width 0.2s ease, height 0.2s ease;
-// }
-
-// :host {
-//     position: relative;
-// }
-
-// .gradient {
-//     position: absolute;
-// }
-// .content {
-//     position: relative;
-// }
