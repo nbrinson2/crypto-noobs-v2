@@ -1,18 +1,27 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
 import { CoingeckoServiceService } from '../services/coingecko-service.service';
+import { CoinmarketcapServiceService } from '../services/coinmarketcap-service.service';
 import { OverlayService } from '../services/overlay.service';
 import { CoinGeckoCoin } from '../types/coin.types';
 
 @Component({
   selector: 'app-ico',
   templateUrl: './ico.component.html',
-  styleUrls: ['./ico.component.scss']
+  styleUrls: ['./ico.component.scss'],
 })
 export class IcoComponent implements OnInit {
   @Output() sendSearchTermEvent = new EventEmitter<string>();
 
-  public search = "";
+  public search = '';
   public coins: any;
   public coinInfoList: CoinGeckoCoin[] = [];
 
@@ -30,18 +39,19 @@ export class IcoComponent implements OnInit {
 
   constructor(
     private coinGeckoService: CoingeckoServiceService,
-
+    private coinMarketCapService: CoinmarketcapServiceService,
     // Overlay
     private overlayService: OverlayService,
 
     // Hover
     private element: ElementRef<HTMLElement>
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getTrending();
     this.getBitcoinInfo();
-    this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
+    this.getCoinData();
+    this.breakpoint = window.innerWidth <= 600 ? 1 : 3;
   }
 
   public sendSearchTerm(value: string) {
@@ -54,6 +64,12 @@ export class IcoComponent implements OnInit {
     return coin.item.symbol;
   }
 
+  public getCoinData() {
+    this.coinMarketCapService
+      .getCoinInfo()
+      .subscribe((result: any) => console.log('coin market',result.data));
+  }
+
   public getTrending() {
     this.coinGeckoService.getTrending().subscribe((trendingResult: any) => {
       console.log(trendingResult.coins);
@@ -64,21 +80,22 @@ export class IcoComponent implements OnInit {
 
   public getCoinInfoForTrendingCoins(coinList: any) {
     coinList.forEach((coin: any) => {
-      this.coinGeckoService.getCoinInfo(coin.item.id).subscribe((coin: CoinGeckoCoin) => {
-        console.log(coin);
-        this.coinInfoList.push(coin);
-      });
+      this.coinGeckoService
+        .getCoinInfo(coin.item.id)
+        .subscribe((coin: CoinGeckoCoin) => {
+          console.log(coin);
+          this.coinInfoList.push(coin);
+        });
     });
 
     console.log(this.coinInfoList);
-
   }
 
   public getBitcoinInfo() {
     this.coinGeckoService.getBitcoinInfo().subscribe((bitcoinResult: any) => {
       // console.log(typeof bitcoinResult.market_data.current_price.usd);
       this.bitcoinInfo = bitcoinResult;
-    })
+    });
   }
 
   public calculateCoinPrice(coinPrice: number, bitcoinPrice: number) {
@@ -91,27 +108,22 @@ export class IcoComponent implements OnInit {
     });
   }
 
-
   // Overlay
   public showOverlay(coinId: string) {
     this.coinInfoList.forEach((coin) => {
       if (coin.id.includes(coinId)) {
         // Returns a handle to the open overlay
         let dialogRef: CoinProfileOverlayRef = this.overlayService.open({
-          coin: coin
+          coin: coin,
         });
-
       }
-    })
+    });
   }
-
 
   // Responsive
   public onResize(event: any) {
-    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
+    this.breakpoint = event.target.innerWidth <= 600 ? 1 : 3;
   }
-
-
 
   // Hover
   @ViewChildren('coins') coinList?: QueryList<any>;
@@ -119,12 +131,13 @@ export class IcoComponent implements OnInit {
   ngAfterViewInit() {
     this.coinList?.changes.subscribe((coin: any) => {
       this.ngForRendered(coin);
-    })
+    });
   }
 
   public ngForRendered(coin: any) {
     // Set gradient radius to div width
-    this.gradientRadius = coin._results[0].nativeElement.children[0].children[0].getBoundingClientRect().width;
+    this.gradientRadius =
+      coin._results[0].nativeElement.children[0].children[0].getBoundingClientRect().width;
     this.e = coin._results[0].nativeElement.children[0];
     console.log(coin._results[0].nativeElement.children[0]);
     console.log(coin._results[0]);
@@ -160,7 +173,7 @@ export class IcoComponent implements OnInit {
       'height.px': gradientRadius,
       'width.px': gradientRadius,
       'top.px': top,
-      'left.px': left
+      'left.px': left,
     };
   }
 }

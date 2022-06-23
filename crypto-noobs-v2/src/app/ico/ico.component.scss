@@ -1,10 +1,13 @@
-.flexbox-container {
+.flexbox-container,
+.flexbox-container-coin-info {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .flexbox-item {
-  width: 80%;
+  width: 50%;
+  min-width: 375px;
   margin: 10px 10px 10px 30px;
   border-radius: 15px;
   cursor: pointer;
@@ -15,19 +18,11 @@
   // 0 32px 64px #cfff00;
 }
 
-.flexbox-item-1 {
-  min-height: 60px;
-  max-height: 80px;
-}
-
-.flexbox-item-2 {
-  min-height: 60px;
-  max-height: 80px;
-}
-
+.flexbox-item-1,
+.flexbox-item-2,
 .flexbox-item-3 {
   min-height: 60px;
-  max-height: 80px;
+  max-height: 500px;
 }
 
 .site-header {
@@ -69,6 +64,11 @@ mat-form-field {
 
 // Coin profile
 
+.coin-card {
+  min-width: 100%;
+  background: none;
+}
+
 img {
   display: inline-block;
   margin: auto;
@@ -79,10 +79,8 @@ img {
   transition: transform .4s ease-in-out;
 }
 
-.coin-image {
-  width: 28%;
-  max-width: 150px;
-  max-height: 80px;
+.coin-date {
+  margin-left: auto;
 }
 
 .coin-description {
@@ -90,19 +88,50 @@ img {
   padding-left: 5%;
 }
 
+.coin-info {
+  width: 100%;
+  text-align: left;
+}
+
 .coin-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   max-width: 100%;
+  min-height: 250px;
 
   &:hover img {
       transform: rotate(360deg);
   }
 }
 
+.coin-actions .button-container {
+  float: right;
+}
+
 .coin-symbol {
   color: #2565FD;
 }
 
+.tile-container {
+  text-align: center;
+}
+
+.flexbox-container-coin-info > div {
+  display: flex;
+  // background-color: #2565FD;
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+  max-width: 100%;
+  min-width: 30%;
+
+  > div {
+    width: 50%;
+
+    > button {
+      font-size: 20px;
+    }
+  }
+}
 
