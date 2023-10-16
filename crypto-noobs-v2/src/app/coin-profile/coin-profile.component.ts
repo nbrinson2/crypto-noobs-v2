@@ -3,6 +3,7 @@ import { fromEvent } from 'rxjs';
 import { delay, map, mapTo, repeat, share, switchMap, merge, takeUntil } from 'rxjs/operators';
 import { CoinProfileOverlayRef } from './coin-profile-overlay-ref';
 import { COIN_PROFILE_DIALOG_DATA } from './coin-profile-overlay.tokens';
+import { CoinGeckoCoin } from '../types/coin.types';
 
 @Component({
   selector: 'app-coin-profile',
@@ -15,6 +16,7 @@ export class CoinProfileComponent implements OnInit {
   public backgroundImage: any;
   public mouseX = 0;
   public mouseY = 0;
+
   get mousePX() {
     return this.mouseX / this.width;
   }
@@ -45,7 +47,7 @@ export class CoinProfileComponent implements OnInit {
   }
   constructor(
     private dialogRef: CoinProfileOverlayRef,
-    @Inject(COIN_PROFILE_DIALOG_DATA) public coin: any
+    @Inject(COIN_PROFILE_DIALOG_DATA) public coin: CoinGeckoCoin
   ) { }
 
   ngOnInit() {
@@ -68,6 +70,7 @@ export class CoinProfileComponent implements OnInit {
 
     console.log(this.coin);
   }
+
   ngAfterViewInit() {
     this.width = this.card?.nativeElement.offsetWidth;
     this.height = this.card?.nativeElement.offsetHeight;

@@ -9,11 +9,7 @@
     border-radius: 15px;
     cursor: pointer;
     padding: 10px;
-    // border: 1px solid #cfff00;
     box-shadow: 0 1px 2px #cfff00, 0 2px 4px #cfff00, 0 4px 8px #cfff00;
-    // 0 8px 16px #cfff00,
-    // 0 16px 32px #cfff00,
-    // 0 32px 64px #cfff00;
 }
 
 .flexbox-item-1 {
@@ -87,48 +83,3 @@ img {
 .coin-symbol {
     color: #2565FD;
 }
-
-
-
-
-// mat-grid-tile {
-//     // margin: 10px;
-//     border-radius: 15px;
-//     border-color: #cfff00;
-//     border-style: solid;
-//     border-width: 1px;
-// }
-
-// mat-card {
-//     background: transparent;
-//     width: calc(100%);
-//     height: calc(100%);
-// }
-
-// .inside-grid-tile {
-//     position: absolute;
-//     left: 5px;
-// }
-
-// div {
-//     margin: 25px;
-// }
-
-// // Hover
-// .gradient {
-//     position: absolute;
-//     background: radial-gradient(circle closest-side, #2565fd, transparent);
-//     transform: translate(-50%, -50%);
-//     transition: width 0.2s ease, height 0.2s ease;
-// }
-
-// :host {
-//     position: relative;
-// }
-
-// .gradient {
-//     position: absolute;
-// }
-// .content {
-//     position: relative;
-// }

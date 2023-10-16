@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChildren } 
 import { CoinProfileOverlayRef } from '../coin-profile/coin-profile-overlay-ref';
 import { CoingeckoServiceService } from '../services/coingecko-service.service';
 import { OverlayService } from '../services/overlay.service';
-import { CoinGeckoCoin } from '../types/coin.types';
+import { CoinGeckoCoin, TrendingCoinGeckoCoin } from '../types/coin.types';
 
 @Component({
   selector: 'app-trending',
@@ -10,8 +10,7 @@ import { CoinGeckoCoin } from '../types/coin.types';
   styleUrls: ['./trending.component.scss']
 })
 export class TrendingComponent implements OnInit {
-  public coins: any;
-  public coinInfoList: CoinGeckoCoin[] = [];
+  public coins: CoinGeckoCoin[] = [];
 
   // Responsive
   public breakpoint: any;
@@ -23,7 +22,6 @@ export class TrendingComponent implements OnInit {
   public gradientRadius?: number;
   public elementMouseIsOver?: any;
   public e?: any;
-  public bitcoinInfo?: any;
 
   constructor(
     private coinGeckoService: CoingeckoServiceService,
@@ -37,44 +35,31 @@ export class TrendingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTrending();
-    this.getBitcoinInfo();
     this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
   }
 
-  public coinIdentity(_index: any, coin: any) {
-    // console.log(coin.item.symbol);
-    return coin.item.symbol;
+  public coinIdentity(_index: any, coin: CoinGeckoCoin) {
+    return coin.symbol;
   }
 
   public getTrending() {
-    this.coinGeckoService.getTrending().subscribe((trendingResult: any) => {
-      console.log(trendingResult.coins);
-      this.getCoinInfoForTrendingCoins(trendingResult.coins);
-      this.coins = trendingResult.coins;
+    this.coinGeckoService.getTrending().subscribe((result: any) => {
+      console.log(result);
+      const coinList = this.getAdditionalCoinInfoForTrendingCoins(result.coins);
+      this.coins = coinList;
     });
   }
 
-  public getCoinInfoForTrendingCoins(coinList: any) {
-    coinList.forEach((coin: any) => {
+  public getAdditionalCoinInfoForTrendingCoins(coins: TrendingCoinGeckoCoin[]): CoinGeckoCoin[] {
+    const coinList: CoinGeckoCoin[] = [];
+    coins.forEach((coin: TrendingCoinGeckoCoin) => {
       this.coinGeckoService.getCoinInfo(coin.item.id).subscribe((coin: CoinGeckoCoin) => {
         console.log(coin);
-        this.coinInfoList.push(coin);
+        coinList.push(coin);
       });
     });
 
-    console.log(this.coinInfoList);
-
-  }
-
-  public getBitcoinInfo() {
-    this.coinGeckoService.getBitcoinInfo().subscribe((bitcoinResult: any) => {
-      // console.log(typeof bitcoinResult.market_data.current_price.usd);
-      this.bitcoinInfo = bitcoinResult;
-    })
-  }
-
-  public calculateCoinPrice(coinPrice: number, bitcoinPrice: number) {
-    return '$' + (coinPrice * bitcoinPrice).toFixed(4);
+    return coinList;
   }
 
   public getCoinInfo(id: string) {
@@ -86,7 +71,7 @@ export class TrendingComponent implements OnInit {
 
   // Overlay
   public showOverlay(coinId: string) {
-    this.coinInfoList.forEach((coin) => {
+    this.coins.forEach((coin) => {
       if (coin.id.includes(coinId)) {
         // Returns a handle to the open overlay
         let dialogRef: CoinProfileOverlayRef = this.overlayService.open({
